@@ -3,6 +3,7 @@ import { randNum } from "./utilities/math";
 import { copy } from "./utilities/copy"
 import { makeTag } from "./make";
 import { makeEvent } from "./events";
+import { getLocation } from "./utilities/location"
 export * from "./types";
 export { makeEvent } from "./events";
 export { makeTag } from "./make";
@@ -12,6 +13,7 @@ export { makeTag } from "./make";
 export const snap = {
   randNum,
   copy,
+  getLocation
 }
 
 // functions add in global
@@ -20,7 +22,13 @@ declare global {
   function id(selector: string): HTMLElement | null;
   function makeTag<K extends keyof HTMLElementTagNameMap>(tagName: K, options?: any): HTMLElementTagNameMap[K];
   function makeEvent(element: any, type: string, callback: any): void;
-  const snap: { randNum: (type: "int" | "float", min: number, max: number) => number };
+  
+  // snap object
+  const snap: { 
+    randNum: (type: "int" | "float", min: number, max: number) => number; 
+    copy: (text: any) => void;
+    getLocation: () => Promise<{ lat: number; lon: number }>;
+  };
 }
 
 // describe the global functions

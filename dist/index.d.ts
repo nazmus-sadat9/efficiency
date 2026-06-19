@@ -13,6 +13,12 @@ declare function randNum(type: RandomType, min: number, max: number): number;
 
 declare function copy(text: any): Promise<boolean>;
 
+interface LocationCoords {
+    lat: number;
+    lon: number;
+}
+declare function getLocation(): Promise<LocationCoords>;
+
 declare function makeEvent(element: EventTargetEl, // html target element
 type: string, // event type
 callback: EventCallback): void;
@@ -22,6 +28,7 @@ declare function makeTag<K extends keyof HTMLElementTagNameMap>(tagName: K, opti
 declare const snap: {
     randNum: typeof randNum;
     copy: typeof copy;
+    getLocation: typeof getLocation;
 };
 declare global {
     function query(selector: string): HTMLElement | null;
@@ -30,6 +37,11 @@ declare global {
     function makeEvent(element: any, type: string, callback: any): void;
     const snap: {
         randNum: (type: "int" | "float", min: number, max: number) => number;
+        copy: (text: any) => void;
+        getLocation: () => Promise<{
+            lat: number;
+            lon: number;
+        }>;
     };
 }
 declare const query: (selector: string) => HTMLElement | null;

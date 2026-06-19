@@ -1,6 +1,6 @@
 {
   "name": "light-snap",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A JavaScript library that makes coding easier.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
