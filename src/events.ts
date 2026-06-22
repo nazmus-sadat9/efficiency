@@ -16,7 +16,7 @@ export function makeEvent(
   }
   else{
     // if the element not found
-    console.error(`efficiency: Element not found for event ${type}`);
+    console.error(`light-snap: Element not found for event ${type}`);
   }
 
 }

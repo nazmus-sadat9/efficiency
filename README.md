@@ -64,6 +64,20 @@ makeEvent(btn, "click", async () => {
 });
 ```
 
+## Location utility
+```JavaScript
+import { snap } from "light-snap"; // ES Module
+const { snap } = require("light-snap"); // CommonJS
+
+async function location() {
+  const cords = await snap.getLocation(); // return a object of lat and lon.
+
+  console.log(cords.lat); // lat or lon 
+}
+
+location();
+```
+
 ## Installation
 ```
 npm install light-snap
